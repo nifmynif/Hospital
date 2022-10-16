@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Личный кабинет</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="container mt-5">
+    <div class="main-body">
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                                 class="rounded-circle" width="150">
+                        </div>
+                        </br>
+                        <div class="col-sm-3" sec:authorize="hasRole('ROLE_PATIENT')">
+                            <h6 class="mb-0">Лечащий врач</h6>
+                        </div>
+                        <div sec:authorize="hasRole('ROLE_PATIENT')" class="col-sm-9 text-secondary"
+                             th:text="${Doctor}"></div>
+                        </br>
+                        <div class="col-sm-3" sec:authorize="hasRole('ROLE_PATIENT')">
+                            <h6 class="mb-0">Диагноз</h6>
+                        </div>
+                        <div sec:authorize="hasRole('ROLE_PATIENT')" class="col-sm-9 text-secondary"
+                             th:text="${Diagnosis}"></div>
+                        </br>
+                        <div class="row text-center">
+                            <div class="col-sm-12 ">
+                                <a class="btn btn-info btn-lg btn-block" th:href="@{/userEdit}">Редактировать</a>
+                                </br>
+                                </br>
+                                <form method="post" th:action="@{/userDelete}">
+                                    <button type="submit" class="btn btn-danger btn-lg btn-block">Удалить
+                                    </button>
+                                </form>
+                                </br>
+                                </br>
+                                <a sec:authorize="hasRole('ROLE_ADMIN')"
+                                   class="btn btn-warning btn-lg btn-block"
+                                   th:href="@{/adminPage}">Страница администратора</a>
+                                </br>
+                                </br>
+                                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_DOCTOR')"
+                                   class="btn btn-warning btn-lg btn-block"
+                                   th:href="@{/doctorPage}">Страница Врача</a>
+                                </br>
+                                </br>
+                                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_NURSE')"
+                                   class="btn btn-warning btn-lg btn-block"
+                                   th:href="@{/nursePage}">Страница Медсестры</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Имя</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary" th:text="${FirstName}"
+                                 sec:authorize="isAuthenticated()"></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Фамилия</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary" th:text="${LastName}"
+                                 sec:authorize="isAuthenticated()"></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Отчество</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary" th:text="${Patronymic}"
+                                 sec:authorize="isAuthenticated()"></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Пол</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary" th:text="${Sex}"></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Дата рождения</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary" th:text="${Birthday}"></div>
+                        </div>
+                        <hr sec:authorize="hasRole('ROLE_PATIENT')">
+                        <div class="row" sec:authorize="hasRole('ROLE_PATIENT')">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Симптомы</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary" th:text="${Symptoms}"></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary" th:text="${Email}"></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Телефон</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary" th:text="${Phone}"></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Город</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary" th:text="${City}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+
+</html>

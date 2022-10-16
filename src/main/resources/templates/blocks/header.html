@@ -1,0 +1,63 @@
+<div th:fragment="header">
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+
+            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use th:href="@{/}">
+                        <div class="fs-4 fw-bold">Б</div>
+                        <img class="mt-2" src="images/bagel.png" title="NetSyshki"
+                             height="50"
+                             width="50"/>
+                        <div class="fs-4 fw-bold">льница</div>
+                    </use>
+                </svg>
+            </a>
+
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a th:href="@{/}" class="nav-link px-2 link-secondary">Главная</a></li>
+                <li><a th:href="@{/about}" class="nav-link px-2 link-dark">О Нас</a></li>
+            </ul>
+
+            <div class="col-md-3 text-end">
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a th:if="${#request.userPrincipal == null}" th:href="@{/login}"
+                                            class="nav-link active">Войти
+                    </a></li>
+                    <li class="nav-item"><a th:if="${#request.userPrincipal == null}" th:href="@{/sign_up}"
+                                            class="nav-link">Регистрация
+                    </a></li>
+                    <li class="nav-item"><a th:if="${#request.userPrincipal != null}" th:href="@{/userInfo}"
+                                            class="nav-link active">Личный кабинет
+                    </a></li>
+                    <li class="nav-item"><a th:if="${#request.userPrincipal != null}" th:href="@{/logout}"
+                                            class="nav-link">Выйти
+                    </a></li>
+                </ul>
+            </div>
+        </header>
+    </div>
+</div>
+
+<div class="dropdown">
+    <a href="#"
+       class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-dark text-decoration-none dropdown-toggle show"
+       data-bs-toggle="dropdown" aria-expanded="true">
+        <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+        </svg>
+    </a>
+    <ul class="dropdown-menu text-small shadow show"
+        style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 34px);"
+        data-popper-placement="bottom-start">
+        <li><a class="dropdown-item active" href="#" aria-current="page">Overview</a></li>
+        <li><a class="dropdown-item" href="#">Inventory</a></li>
+        <li><a class="dropdown-item" href="#">Customers</a></li>
+        <li><a class="dropdown-item" href="#">Products</a></li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#">Reports</a></li>
+        <li><a class="dropdown-item" href="#">Analytics</a></li>
+    </ul>
+</div>

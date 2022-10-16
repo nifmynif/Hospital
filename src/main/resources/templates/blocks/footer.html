@@ -1,0 +1,71 @@
+<div th:fragment="footer">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <svg class="bi" width="30" height="24">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-muted">© 2022 NetSyshki, Inc</span>
+        </div>
+        <div class="footer-top">
+            <div class="uk-container uk-container-center uk-position-relative">
+                <div class="">
+                    <div class="uk-flex uk-flex-wrap other-links">
+                        <a href="http://president.gov.by/" target="_blank"
+                           title="Официальный интернет-портал Президента Республики Беларусь"
+                           rel="noopener noreferrer">
+                            <img th:src="@{images/footer1.jpg}" alt=""></a>
+                        <a href="http://minzdrav.gov.by/" target="_blank"
+                           title="Министерство здравоохранения Республики Беларусь"
+                           rel="noopener noreferrer">
+                            <img th:src="@{images/footer2.jpg}" alt=""></a>
+                        <a href="https://komzdrav-minsk.gov.by/"
+                           target="_blank"
+                           title="Комитет по здравоохранению Мингорисполкома"
+                           rel="noopener noreferrer">
+                            <img th:src="@{images/footer3.jpg}" alt=""></a>
+                        <a href="https://minsk.gov.by/ru/" target="_blank"
+                           title="Минский городской исполнительный комитет"
+                           rel="noopener noreferrer">
+                            <img th:src="@{images/footer4.jpg}" alt=""></a>
+                        <a href="https://131.by/" target="_blank"
+                           title="Информационная медицинская телесвязь"
+                           rel="noopener noreferrer">
+                            <img th:src="@{images/footer5.jpg}" alt=""></a>
+                        <a href="https://24health.by/" target="_blank"
+                           title="Здоровые Люди"
+                           rel="noopener noreferrer">
+                            <img th:src="@{images/footer6.jpg}" alt=""></a>
+                    </div>
+                    <div class="to-topbutton">&nbsp;</div>
+                </div>
+                <div class="">
+                    <div class="oncoprof" style="text-align: center;">
+                        <a href="/rannyaya-diagnostika-onkozabolevanij"
+                           style="color: #ffffff;">Ранняя диагностика<br>онкозаболеваний</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-muted" href="#">
+                    <svg class="bi" width="24" height="24">
+                        <use xlink:href="#twitter"></use>
+                    </svg>
+                </a></li>
+                <li class="ms-3"><a class="text-muted" href="#">
+                    <svg class="bi" width="24" height="24">
+                        <use xlink:href="#instagram"></use>
+                    </svg>
+                </a></li>
+                <li class="ms-3"><a class="text-muted" href="#">
+                    <svg class="bi" width="24" height="24">
+                        <use xlink:href="#facebook"></use>
+                    </svg>
+                </a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
